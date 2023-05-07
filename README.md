@@ -1,74 +1,82 @@
-# Segmentation-of-Stamps-in-Documents
-## Segment and Parse stamps on documents.
+# Segmentation of Stamps in Documents
+## Segmenting and Parsing Stamps on Documents
 
-### You are attempting to segment just the stamps from the background text or use OCR techniques to identify the stamped text.
+### Introduction
+The segmentation of stamps in scanned documents is an essential task for automatic systems used in environments such as insurance companies. A significant amount of documents are processed daily, and the detection of stamps can be challenging due to their varied shapes, colors, and quality. This dataset is designed to assist researchers in developing systems for stamp segmentation and verification.
 
-**Author** : SHAILESH DHAMA
+### Dataset
+This dataset contains 400 scanned invoice document images printed, stamped, and scanned at 200 DPI resolution. The images include color logos and texts, making evaluation results more realistic. The dataset includes stamps of different shapes, colors, and qualities, some of which are overlapped with signatures or text. The ground truth for the dataset consists of binary images with masks of the stamp strokes that allow accurate pixel-wise evaluation. The dataset contains the following folders:
 
-An automatic system for stamp segmentation and further verification is needed especially for environments like insurance companies where a huge volume of documents is processed daily. However, detection of a general stamp is not a trivial task as it can have different shapes and colors and, moreover, it can be imprinted with a variable quality and rotation. This dataset was collected to help researchers build such a system.
-    
-### Dataset:
+* scans: scanned genuine document images with stamps
+* ground-truth-maps: maps defining the region of the stamp(s)
+* ground-truth-pixel: pixel-level ground truth
+* info: contains text files with information about each file, such as signature presence, overlapping of stamps with printed text, the number of stamps on the page, and whether a stamp is black or colored.
 
-This dataset contains 400 scanned document images. The documents are automatically generated invoices that were printed, stamped and scanned with 200 dpi resolution. They include color logos and color texts which makes the evaluation results more realistic. There are stamps of many different shapes and colors including black ones in the data set, sometimes the stamps are overlapped with signatures or a text. In some documents there are multiple stamps or none at all. The groundtruth consists of binary images with masks of the stamp strokes which allows for accurate pixel-wise evaluation.
-This dataset contains the following folders, each with 400 items (one for each image):
+### Methods
+The following methods were employed in this project:
 
-scans: scans of the stamped genuine documents
-ground-truth-maps: maps defining the region of the stamp(s)
-ground-truth-pixel: pixel-level ground truth
-info: contains text files with the info for each file. Each info file contains the following information:
-signature [0|1]: signature present [0] or not [1]
-textOverlap [0|1]: stamps overlap with printed text [1]
-numStamps [0|…|n]: number of stamps on the page
-bwStamp[1|…|n]: stamp[1|…|n] is black stamp [1] or colored [1]
-    
-## Methods:
+#### 1. Importing Libraries
+We imported the following libraries: numpy, pandas, imageio, scikit-learn, scikit-image, cv2, keras, matplotlib, seaborn, and glob.
 
-    ### 1. Importing Libraries :
-           -- numpy, pandas,imageio,scikit-learn,scikit-image,cv2,keras,matplotlib,seaborn,glob.
+#### 2. Scanned Image Visualizations
+We read and visualized the scanned images from the dataset using matplotlib and imread.
 
-    ### 2. Scanned Image Visualisations:
-           -- Read the images from the dataset using matplotlib and imread.
-           
-    ### 3. Image Segmentation:
-           -- Segment and parse the images to extract only the stamps.
-           
-    ### 4. Modelling
-           -- Create a U-net model just to automate the segmentation.
-           
-## RESULTS :
+#### 3. Image Segmentation
+We segmented and parsed the images to extract only the stamps from the background text using various techniques.
 
-#### Scanned Image Visualisations
-![Scanned Image Visualisations](./STVER_1.png)
+#### 4. Modelling
+We created a U-net model to automate the segmentation of stamps.
 
-#### Stamp Segmentation Sample
-![Stamp Segmentation Sample](./STVER_2.png)
-![Stamp Segmentation Sample](./STVER_3.png)
+### Statistical Formulas
+Below are some of the statistical formulas used in this project, written in LaTeX:
+
+#### Mean Absolute Error
+Mean Absolute Error (MAE) is a commonly used metric to measure the difference between two continuous variables. It represents the average absolute difference between the predicted and actual values. The formula for calculating MAE is:
+
+$$MAE = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y_i}|$$
+
+where:
+
+- $n$ is the number of observations
+- $y_i$ is the actual value of the i-th observation
+- $\hat{y_i}$ is the predicted value of the i-th observation
+
+MAE is preferred over other metrics like Mean Squared Error (MSE) because it is less sensitive to outliers, which can have a significant impact on MSE. MAE is typically expressed in the same units as the variable being measured.
+
+### Results
+The following are the results of our project:
+
+#### Scanned Image Visualizations
+![Scanned Image Visualizations](./images/STVER_1.png)
+
+#### Stamp Segmentation Samples
+![Stamp Segmentation Sample 1](./images/STVER_2.png)
+![Stamp Segmentation Sample 2](./images/STVER_3.png)
 
 #### Model Creation
-![Model Creation](./STVER_4.png)
+![Model Creation](./images/STVER_4.png)
 
 #### Model Summary
-![Model Summary](./STVER_5.png)
+![Model Summary](./images/STVER_5.png)
 
 #### Automated Segmentation Output
-![Automated Segmentation Output](./STVER_6.png)
+![Automated Segmentation Output](./images/STVER_6.png)
 
-### For further information
-Please review the narrative of our analysis in [our jupyter notebook](./segmentation-of-stamps-in-documents.ipynb)
+### Additional Information
+Please review the narrative of our analysis in [our jupyter notebook](./segmentation-of-stamps-in-documents.ipynb).
 
-For any additional questions, please contact **shaileshettyd@gmail.com)
+For any additional questions, please contact **shaileshettyd@gmail.com**.
 
-##### Repository Structure:
-
+### Repository Structure
+```
+├── README.md                                      <- The top-level README for reviewers of this project.
+├── segmentation-of-stamps-in-documents.ipynb      <- Narrative documentation of the analysis in Jupyter Notebook
+├── invoice-50.pdf                                 <- Dataset
+└── images                                         <- Generated from code
 ```
 
-├── README.md                                               <- The top-level README for reviewers of this project.
-├── segmentation-of-stamps-in-documents.ipynb               <- narrative documentation of analysis in jupyter notebook
-├── invoice-50.pdf                                          <- Dataset
-└── images                                                  <- generated from code
-
-```
-## Citing
+### Citation
+If you find this work useful in your research, please cite:
 
 ```
 @misc{Shailesh:2020,
