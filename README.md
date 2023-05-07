@@ -47,20 +47,20 @@ MAE is preferred over other metrics like Mean Squared Error (MSE) because it is 
 The following are the results of our project:
 
 #### Scanned Image Visualizations
-![Scanned Image Visualizations](./images/STVER_1.png)
+![Scanned Image Visualizations](./STVER_1.png)
 
 #### Stamp Segmentation Samples
-![Stamp Segmentation Sample 1](./images/STVER_2.png)
-![Stamp Segmentation Sample 2](./images/STVER_3.png)
+![Stamp Segmentation Sample 1](./STVER_2.png)
+![Stamp Segmentation Sample 2](./STVER_3.png)
 
 #### Model Creation
-![Model Creation](./images/STVER_4.png)
+![Model Creation](./STVER_4.png)
 
 #### Model Summary
-![Model Summary](./images/STVER_5.png)
+![Model Summary](./STVER_5.png)
 
 #### Automated Segmentation Output
-![Automated Segmentation Output](./images/STVER_6.png)
+![Automated Segmentation Output](./STVER_6.png)
 
 ### Additional Information
 Please review the narrative of our analysis in [our jupyter notebook](./segmentation-of-stamps-in-documents.ipynb).
